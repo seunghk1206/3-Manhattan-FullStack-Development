@@ -1,6 +1,6 @@
 mazeL = []
 coor = []
-coorUnval = []
+cooraround = []
 anonymousNum = 0
 answer = 0
 firstX = 0
@@ -16,6 +16,15 @@ for eachL in mazeL:
         if eachNum == '1':
             coor.append([mazeL.index(eachL), eachL.index(eachNum)])
 print(coor)
+for each in coor:
+    if [firstX+1, firstY] == each:
+        cooraround.append([firstX+1, firstY])
+    elif [firstX, firstY+1] == each:
+        cooraround.append([firstX, firstY+1])
+    elif [firstX-1, firstY] == each:
+        cooraround.append([firstX-1, firstY])
+    elif [firstX, firstY-1] == each:
+        cooraround.append([firstX, firstY-1])
 #for each in coor:
 
 '''
