@@ -12,9 +12,9 @@ for _ in range(N):
 print(N, M)
 print(mazeL)
 for eachL in mazeL:
-    for eachNum in eachL:
-        if eachNum == '1':
-            coor.append([mazeL.index(eachL), eachL.index(eachNum)])
+    for eachNum in range(len(eachL)):
+        if eachL[eachNum] == '1':
+            coor.append([mazeL.index(eachL), eachNum])
 print(coor)
 for each in coor:
     if [firstX+1, firstY] == each:
@@ -34,8 +34,8 @@ for each in coor:
 4. [N][M]에 도착했을경우 리스트.append(answer)
 5. print(min(리스트))
 BFS
-0101111
-0101010
-0101011
-0111011
+101111
+101010
+101011
+111011
 '''
