@@ -1,50 +1,48 @@
 mazeL = []
 coor = []
 cooraround = []
+lenL = []
 anonymousNum = 0
 answer = 0
-firstX = 0
-firstY = 0
-run = True
 N, M = map(int, input().split(' '))
 for _ in range(N):
     Li = str(input())
     mazeL.append(Li)
-print(N, M)
-print(mazeL)
 for eachL in mazeL:
     for eachNum in range(len(eachL)):
         if eachL[eachNum] == '1':
-            coor.append([mazeL.index(eachL), eachNum])
-print(coor)
-if coor[firstX][firstY] in coor:   
-    if [firstX+1, firstY] in coor:
-        cooraround.append([firstX+1, firstY])
-    elif [firstX, firstY+1] in coor:
-        cooraround.append([firstX, firstY+1])
-    elif [firstX-1, firstY] in coor:
-        cooraround.append([firstX-1, firstY])
-    elif [firstX, firstY-1] in coor:
-        cooraround.append([firstX, firstY-1])
-    answer += 1
-    coor.remove(coor[firstX][firstY])
-while run:
-    if [N, M]:
+            coor.append([mazeL.index(eachL), eachNum]) 
+if [1, 0] in coor:
+    cooraround.append([1, 0])
+elif [0, 1] in coor:
+    cooraround.append([0, 1])
+elif [-1, 0] in coor:
+    cooraround.append([-1, 0])
+elif [0, -1] in coor:
+    cooraround.append([0, -1])
+answer += 1
+coor.remove([0, 0])
+print(coor, 'then', cooraround)
+for each in cooraround:
+    print(each)
+    if each == [N-1, M-1]:
+        answer += 1
+        lenL.append(answer)
     else:
         if [each[0]+1, each[1]] in coor:
             cooraround.append([each[0]+1, each[1]])
-            coor.remove(coor[each[0]+1][each[1]])
+            coor.remove([each[0]+1, each[1]])
         elif [each[0], each[1]+1] in coor:
             cooraround.append([each[0], each[1]+1])
-            coor.remove(coor[each[0]][each[1]+1])
+            coor.remove([each[0], each[1]+1])
         elif [each[0]-1, each[1]] in coor:
             cooraround.append([each[0]-1, each[1]])
-            coor.remove(coor[each[0]-1][each[1]])
+            coor.remove([each[0]-1, each[1]])
         elif [each[0], each[1]-1] in coor:
             cooraround.append([each[0], each[1]-1])
-            coor.remove(coor[each[0]][each[1]-1])
+            coor.remove([each[0], each[1]-1])
         answer += 1
-
+print(min(lenL))
 '''
 1. 우선은 N, M을 인풋으로 받기
 2. for loop 돌려서 2d 리스트 받기
