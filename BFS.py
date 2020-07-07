@@ -11,16 +11,8 @@ for _ in range(N):
 for eachL in mazeL:
     for eachNum in range(len(eachL)):
         if eachL[eachNum] == '1':
-            coor.append([mazeL.index(eachL), eachNum]) 
-if [1, 0] in coor:
-    cooraround.append([1, 0])
-elif [0, 1] in coor:
-    cooraround.append([0, 1])
-elif [-1, 0] in coor:
-    cooraround.append([-1, 0])
-elif [0, -1] in coor:
-    cooraround.append([0, -1])
-answer += 1
+            coor.append([mazeL.index(eachL), eachNum])
+cooraround.append([0, 0])
 coor.remove([0, 0])
 print(coor, 'then', cooraround)
 for each in cooraround:
