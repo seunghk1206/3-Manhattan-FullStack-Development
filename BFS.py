@@ -14,9 +14,7 @@ for eachL in range(N):
             coor.append([eachL, eachNum])
 cooraround.append([0, 0])
 coor.remove([0, 0])
-print(coor, 'then', cooraround)
 for each in cooraround:
-    print(each)
     if each == [N-1, M-1]:
         answer += 1
         lenL.append(answer)
@@ -42,6 +40,7 @@ print(min(lenL))
 4. [N][M]에 도착했을경우 리스트.append(answer)
 5. print(min(리스트))
 BFS
+4 6
 101111
 101010
 101011
