@@ -8,10 +8,10 @@ N, M = map(int, input().split(' '))
 for _ in range(N):
     Li = str(input())
     mazeL.append(Li)
-for eachL in mazeL:
-    for eachNum in range(len(eachL)):
-        if eachL[eachNum] == '1':
-            coor.append([mazeL.index(eachL), eachNum])
+for eachL in range(N):
+    for eachNum in range(M):
+        if mazeL[eachL][eachNum] == '1':
+            coor.append([eachL, eachNum])
 cooraround.append([0, 0])
 coor.remove([0, 0])
 print(coor, 'then', cooraround)
