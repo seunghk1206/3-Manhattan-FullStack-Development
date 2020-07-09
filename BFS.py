@@ -2,8 +2,10 @@ mazeL = []
 coor = []
 cooraround = []
 lenL = []
+path = []
 anonymousNum = 0
 answer = 0
+count = 0
 N, M = map(int, input().split(' '))
 for _ in range(N):
     Li = str(input())
@@ -15,6 +17,7 @@ for eachL in range(N):
 cooraround.append([0, 0])
 coor.remove([0, 0])
 for each in cooraround:
+    path.append(each)
     if each == [N-1, M-1]:
         answer += 1
         lenL.append(answer)
@@ -22,17 +25,25 @@ for each in cooraround:
         if [each[0]+1, each[1]] in coor:
             cooraround.append([each[0]+1, each[1]])
             coor.remove([each[0]+1, each[1]])
-        elif [each[0], each[1]+1] in coor:
+            count += 1
+        if [each[0], each[1]+1] in coor:
             cooraround.append([each[0], each[1]+1])
             coor.remove([each[0], each[1]+1])
-        elif [each[0]-1, each[1]] in coor:
+            count += 1
+        if [each[0]-1, each[1]] in coor:
             cooraround.append([each[0]-1, each[1]])
             coor.remove([each[0]-1, each[1]])
-        elif [each[0], each[1]-1] in coor:
+            count += 1
+        if [each[0], each[1]-1] in coor:
             cooraround.append([each[0], each[1]-1])
             coor.remove([each[0], each[1]-1])
-        answer += 1
+            count += 1
+    if count > 0:
+        print(count)
+        answer -= count
+        count = 0
 print(min(lenL))
+print(path)
 '''
 1. 우선은 N, M을 인풋으로 받기
 2. for loop 돌려서 2d 리스트 받기
@@ -45,4 +56,12 @@ BFS
 101010
 101011
 111011
+out: 15
+5 7
+1111111
+1100001
+1110001
+0001001
+1111111
+out: 11
 '''
