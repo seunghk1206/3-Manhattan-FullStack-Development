@@ -25,4 +25,4 @@ def solution(n, lost, reserve):
             answer += 1
             reserve.remove(each+1)
     return answer
-print(solution(3, [1,2], [2,3]))
+print(solution(5, [5, 3, 9, 2], [10, 4]))
