@@ -14,3 +14,4 @@ def quadSol():
     elif inpS == 'n':
         return (-bp-(bp**2-4*(ap*cp))**(1/2))/(2*ap)
 print(quadSol())
+###
