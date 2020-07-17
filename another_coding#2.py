@@ -8,5 +8,9 @@ def quadSol():
     ap = int(a.split('x^2')[0])
     bp = int(b.split('x')[0])
     cp = int(c)
+    if ap == '':
+        ap = 1
+    if bp =='':
+        bp = 1
     print('(x + ', (-bp+(bp**2-4*(ap*cp))**(1/2))/(2*ap), ')(x + ', (-bp-(bp**2-4*(ap*cp))**(1/2))/(2*ap), ')')
 quadSol()
