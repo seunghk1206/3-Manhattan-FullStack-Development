@@ -1,18 +1,23 @@
 def solution(land):
     answer = 0
     reselect = []
-    tempL = []
-    for eachList in land:
-        tempL.append(eachList)
+    tempL = {}
+    tempLB = []
+    for eachNum in range(len(land)):
+        tempL[eachNum] = land[eachNum]
+    for e in land:
+        tempLB.append(e)
     for i in range(4):
         x = 0
-        land = []
-        #for _ in range(i):
-        #    land[0].remove(max(land[0]))
+        del tempLB[:]
+        for key, var in tempL.items():
+            tempLB.append(var)
+        for _ in range(i):
+            tempLB[0].remove(max(tempLB[0]))
         print(tempL)
-        for each in land:
+        for each in tempLB:
             try:
-                land[land.index(each)+1].pop(each.index(max(each)))
+                tempLB[tempLB.index(each)+1].pop(each.index(max(each)))
                 x += max(each)
             except:
                 pass
